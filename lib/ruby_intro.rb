@@ -3,15 +3,37 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  sum = 0
+  arr.each do |num|
+    sum += num
+  end
+  sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  arr.sort!
+  if arr.length >= 2
+    arr.pop + arr.pop
+  elsif arr.length == 1
+    arr.pop
+  else
+    0
+  end
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  if arr.length <= 1
+    false
+  else
+    (0...arr.length-1).each do |i|
+      (i+1...arr.length).each do |j|
+        if arr[i] + arr[j] == n
+          return true
+        end
+      end
+    end
+  end
+  false
 end
 
 # Part 2
