@@ -39,19 +39,37 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  "Hello, #{name}"
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  s =~ /^[^aeiou]/i and s=~ /^[a-z]/i
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if s =~ /^(0|1)*$/i and s != ""
+    s.to_i % 4 == 0
+  else
+    false
+  end
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  
+  def initialize (isbn, price)
+    if isbn == "" or price == 0 or price < 0
+      raise ArgumentError
+    end
+    @isbn = isbn
+    @price = price
+  end
+  
+  attr_accessor :isbn
+  attr_accessor :price
+  
+  def price_as_string
+    "$%0.2f" % [price]
+  end
 end
